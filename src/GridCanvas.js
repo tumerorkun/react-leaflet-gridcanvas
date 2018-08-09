@@ -3,11 +3,20 @@ import { GridLayer as RLGridLayer } from 'react-leaflet'
 
 export default class GridCanvas extends RLGridLayer {
 
-    createLeafletElement() {
-        const color = (this.props && this.props.color) || "white";
-        const centerText = (this.props && this.props.centerText) || `zoom: #z`;
-        const options = (this.props && this.props.options) || { noWrap: true, bounds: [[-90, -180], [90, 180]] }
+    constructor(props) {
+        super(props);
+        this.updateVariables = this.updateVariables.bind(this);
+        this.updateVariables(props);
+    }
 
+    updateVariables(p) {
+        this.color = (p && p.color) || "white";
+        this.centerText = (p && p.centerText) || `zoom: #z`;
+        this.options = (p && p.options) || { noWrap: true, bounds: [[-90, -180], [90, 180]] }
+    }
+
+    createLeafletElement() {
+        const _ = this;
         const Grid = GridLayer.extend({
         createTile: function (coords) {
             // create a <canvas> element for drawing
@@ -22,7 +31,7 @@ export default class GridCanvas extends RLGridLayer {
             ctx.translate(0.5, 0.5)
             ctx.setLineDash([3]);
             ctx.lineWidth = 0.4;
-            ctx.strokeStyle = ctx.fillStyle = color;
+            ctx.strokeStyle = ctx.fillStyle = _.color;
             ctx.rect(0, 0, tile.width, tile.height);
             ctx.stroke();
             const replacer = (match, p1, p2, p3, offset, string) => {
@@ -32,13 +41,18 @@ export default class GridCanvas extends RLGridLayer {
             }
             ctx.fillText(`( x: #x, y: #y )`.replace(/(#x)|(#y)|(#z)/gi, replacer), 5, 20);
             ctx.textAlign = "center";
-            let center = centerText
-            if (typeof centerText === 'function') { center = centerText(coords) }
+            let center = _.centerText
+            if (typeof _.centerText === 'function') { center = _.centerText(coords) }
             ctx.fillText(center.replace(/(#x)|(#y)|(#z)/gi, replacer), size.x / 2, (size.y / 2) + 3)
             // return the tile so it can be rendered on screen
             return tile;
         }
         });
-        return new Grid(options);
+        return new Grid(this.options);
+    }
+
+    updateLeafletElement(fromProps, toProps) {
+        this.updateVariables(toProps)
+        this.leafletElement.redraw();
     }
 }
