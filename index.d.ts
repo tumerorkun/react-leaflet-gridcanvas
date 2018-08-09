@@ -1,4 +1,4 @@
-import { GridLayer, GridLayerOptions } from 'leaflet'
+import { Layer, GridLayer, GridLayerOptions } from 'leaflet'
 import { LayerContainer, Map, GridLayer as RLGridLayer, GridLayerProps } from "react-leaflet";
 
 export interface GCProps extends GridLayerProps {
