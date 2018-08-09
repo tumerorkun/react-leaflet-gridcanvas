@@ -4,7 +4,7 @@
   "description": "React leaflet component to display grid and some info in the grid.",
   "scripts": {
     "build": "rimraf dist && webpack",
-    "babel": "babel src --out-dir lib && cp src/*.css lib",
+    "babel": "babel src --out-dir lib",
     "examples": "webpack-serve ./examples/webpack.config.js"
   },
   "keywords": [

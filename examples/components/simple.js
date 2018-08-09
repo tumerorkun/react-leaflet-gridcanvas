@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Map, TileLayer} from 'react-leaflet'
-import { ReactLeafletZoomIndicator } from '../../src';
+import { GridCanvas } from '../../src';
 
 export default class SimpleExample extends Component {
 
@@ -40,7 +40,7 @@ export default class SimpleExample extends Component {
           maxZoom={this.state.maxZoom}
           maxBounds={this.state.maxBounds}>
         <TileLayer noWrap={true} url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <ReactLeafletZoomIndicator head="zoom:" position="topleft" />
+        <GridCanvas color={'black'}/>
       </Map>
     )
   }

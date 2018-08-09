@@ -1,1 +1,1 @@
-export { default as ReactLeafletZoomIndicator }  from './react-leaflet-zoom-indicator';
+export { default as GridCanvas }  from './GridCanvas';
