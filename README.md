@@ -1,5 +1,5 @@
-# react-leaflet-zoom-indicator
-React component to display and change the current zoom level of a leaflet map.
+# react-leaflet-gridcanvas
+React leaflet component to display grid and some info in the grid.
 
 Supports react-leaflet v1 and v2
 
@@ -12,15 +12,35 @@ You can see an example project on [react-leaflet-components-examples repository]
 
 ### install package
 ```javascript
-npm i react-leaflet-zoom-indicator
+npm i react-leaflet-gridcanvas
 ```
 
 ### import to project
 ```javascript
-import { ReactLeafletZoomIndicator } from 'react-leaflet-zoom-indicator'
+import { GridCanvas } from 'react-leaflet-gridcanvas'
 ```
 
 ### use it in the map
 ```javascript
-<ReactLeafletZoomIndicator head='zoom:' position='topleft' />
+<GridCanvas />
+```
+#### default props
+```javascript
+color = 'white'
+centerText = 'zoom: #z' // #z will replace with zoom value
+options = {
+  noWrap: true,
+  bounds: [[-90, -180], [90, 180]]
+}
+```
+centerText can be function :
+```javascript
+<GridCanvas centerText={
+  ({x, y, z}) => {
+    // do what ever you want
+    return `x: ${x}, y: ${y}, z: ${z}`;
+    // or
+    // return 'x: #x, y: #y, z: #z'
+  }
+}/>
 ```
