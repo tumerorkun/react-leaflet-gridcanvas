@@ -1,0 +1,49 @@
+{
+  "name": "react-leaflet-gridcanvas",
+  "version": "0.0.1",
+  "description": "React leaflet component to display grid and some info in the grid.",
+  "scripts": {
+    "build": "rimraf dist && webpack",
+    "babel": "babel src --out-dir lib && cp src/*.css lib",
+    "examples": "webpack-serve ./examples/webpack.config.js"
+  },
+  "keywords": [
+    "react-leaflet",
+    "react",
+    "leaflet",
+    "grid",
+    "gridlayer"
+  ],
+  "author": "Orkun Tumer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tumerorkun/react-leaflet-gridcanvas/issues"
+  },
+  "homepage": "https://github.com/tumerorkun/react-leaflet-gridcanvas#readme",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tumerorkun/react-leaflet-gridcanvas.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "leaflet": "^1.3.3",
+    "mini-css-extract-plugin": "^0.4.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-leaflet": "^1.9.1",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-serve": "^2.0.2"
+  }
+}
