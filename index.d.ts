@@ -4,6 +4,7 @@ import { LayerContainer, Map, GridLayer as RLGridLayer, GridLayerProps } from "r
 export interface GCProps extends GridLayerProps {
   color?: string;
   centerText?: string | Function;
+  bottomLeftText?: string | Function;
   options?: GridLayerOptions;
   leaflet?: {
     map?: Map;

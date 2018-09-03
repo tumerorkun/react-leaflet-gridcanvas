@@ -28,10 +28,12 @@ export default class SimpleExample extends Component {
           lng: 24.510498046875,
         },
       ],
+      gridColor: 'red'
     }
   }
 
   render() {
+    // setTimeout(() => { this.setState({ gridColor: 'blue'}) }, 5000)
     return (
       <Map
           className="simpleMap"
@@ -40,7 +42,7 @@ export default class SimpleExample extends Component {
           maxZoom={this.state.maxZoom}
           maxBounds={this.state.maxBounds}>
         <TileLayer noWrap={true} url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <GridCanvas color={'black'}/>
+        <GridCanvas color={this.state.gridColor}/>
       </Map>
     )
   }
