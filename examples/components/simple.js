@@ -33,7 +33,11 @@ export default class SimpleExample extends Component {
   }
 
   render() {
-    // setTimeout(() => { this.setState({ gridColor: 'blue'}) }, 5000)
+    setTimeout(() => {
+      this.setState({
+        gridColor: 'blue'
+      })
+    }, 5000)
     return (
       <Map
           className="simpleMap"
